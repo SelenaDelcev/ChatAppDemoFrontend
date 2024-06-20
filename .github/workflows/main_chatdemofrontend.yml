@@ -28,6 +28,9 @@ jobs:
           npm run test --if-present
         continue-on-error: false
 
+      - name: Install serve globally
+        run: npm install -g serve
+
       - name: Zip the build directory
         run: zip -r build.zip build
 
