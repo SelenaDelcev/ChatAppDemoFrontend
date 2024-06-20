@@ -30,7 +30,7 @@ const App = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:8000/chat', newMessage, {
+      const response = await axios.post('https://chatdemobackend.azurewebsites.net/chat', newMessage, {
         headers: {
           'Content-Type': 'application/json'
         }
