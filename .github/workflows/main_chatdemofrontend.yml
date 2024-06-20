@@ -59,4 +59,4 @@ jobs:
           app-name: 'chatdemofrontend'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D37B8E2F75CF40EE867EB72C93037FE5 }}
-          package: .
+          package: deployment/build.
