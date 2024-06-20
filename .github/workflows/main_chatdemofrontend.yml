@@ -26,16 +26,16 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
-        continue-on-error: true
+        continue-on-error: true  # This allows the workflow to continue even if tests fail
 
-      - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
+      - name: Zip the build directory
+        run: zip -r build.zip build
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: node-app
-          path: release.zip
+          path: build.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -51,7 +51,7 @@ jobs:
           name: node-app
 
       - name: Unzip artifact for deployment
-        run: unzip release.zip
+        run: unzip build.zip -d deployment
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
@@ -60,4 +60,4 @@ jobs:
           app-name: 'chatdemofrontend'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D37B8E2F75CF40EE867EB72C93037FE5 }}
-          package: deployment/build.
+          package: deployment/build
