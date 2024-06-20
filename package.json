@@ -15,11 +15,13 @@
     "react-dom": "^18.3.1",
     "react-dropzone": "^14.2.3",
     "react-scripts": "^5.0.1",
+    "serve": "^14.2.3",
     "web-vitals": "^4.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "serve": "serve -s build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -53,7 +55,7 @@
   },
   "jest": {
     "transformIgnorePatterns": [
-        "node_modules/(?!(axios)/)"
+      "node_modules/(?!(axios)/)"
     ]
-}
+  }
 }
